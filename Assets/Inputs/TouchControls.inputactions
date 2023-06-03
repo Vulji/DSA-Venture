@@ -1,0 +1,78 @@
+{
+    "name": "TouchControls",
+    "maps": [
+        {
+            "name": "GameControls",
+            "id": "e684b6c9-ae35-4ec5-965c-53e6c64d4af8",
+            "actions": [
+                {
+                    "name": "PressScreen",
+                    "type": "Button",
+                    "id": "af4affa2-5f42-4446-b893-90107c33d0c1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "419a4010-7733-415e-8253-615581a58d4b",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38caad23-1754-49e4-9fea-7519c3512ab4",
+                    "path": "<Touchscreen>/touch*/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a8b6a0ca-b50b-4592-a630-18f13f093384",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "780a7ec2-165a-4f62-b272-d0c1f597c5fa",
+                    "path": "<Touchscreen>/touch1/indirectTouch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0e0ae9cb-cbc6-4257-a7a6-cae28d1734da",
+                    "path": "<Touchscreen>/touch1/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
