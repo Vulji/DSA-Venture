@@ -5,29 +5,34 @@ using UnityEngine;
 
 public class RunStart : MonoBehaviour
 {
-    private GameGo _gameGo;
-    private Animator _jvAnimator;
+    private IGameGo _gameGo;
+    private IRunner _runner;
+    private AnimationController _animationController;
+    private bool _isRunStartTriggered;
+    
     [SerializeField] private GameObject _player;
     [SerializeField] private float _speed = 5f;
 
+
     private void Awake()
     {
-        _gameGo = FindAnyObjectByType<GameGo>();
-        _jvAnimator = GetComponent<Animator>();
+        _gameGo = FindObjectOfType<GameGo>();
+        _animationController = GetComponent<AnimationController>();
+        _runner = new Runner(_player, _speed);
     }
 
     private void Update()
     {
-        if (_gameGo._started)
+        bool isGameStarted = _gameGo.IsStarted();
+        if (isGameStarted)
         {
-            _jvAnimator.SetTrigger("RunStart");
-            Run();
+            if (!_isRunStartTriggered)
+            {
+                _animationController.SetRunStartTrigger();
+                _isRunStartTriggered = true;
+            }
+            _runner.Run();
         }
-    }
-
-    private void Run()
-    {
-        _player.transform.position += Vector3.forward * _speed * Time.deltaTime;
     }
 
 }

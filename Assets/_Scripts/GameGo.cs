@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameGo : MonoBehaviour
+public class GameGo : MonoBehaviour, IGameGo
 {
     [SerializeField] private InputActionAsset _touchScreen;
     private InputAction _pressScreenAction;
-    public bool _started;
+    private bool _started;
 
     private void Awake()
     {
@@ -29,6 +29,11 @@ public class GameGo : MonoBehaviour
     private void OnPressScreenStarted(InputAction.CallbackContext context)
     {
         _started = true;
+    }
+
+    public bool IsStarted()
+    {
+        return _started;
     }
 
 }
