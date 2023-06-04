@@ -7,18 +7,16 @@ public class RunStart : MonoBehaviour
 {
     private IGameGo _gameGo;
     private IRunner _runner;
-    private AnimationController _animationController;
+    private IJVAnimationControl _jvAnimationControl;
     private bool _isRunStartTriggered;
-    
-    [SerializeField] private GameObject _player;
+
     [SerializeField] private float _speed = 5f;
 
-
-    private void Awake()
+    public void Initialize(IGameGo gameGo, IRunner runner, IJVAnimationControl animationController)
     {
-        _gameGo = FindObjectOfType<GameGo>();
-        _animationController = GetComponent<AnimationController>();
-        _runner = new Runner(_player, _speed);
+        _gameGo = gameGo;
+        _runner = runner;
+        _jvAnimationControl = animationController;
     }
 
     private void Update()
@@ -28,7 +26,7 @@ public class RunStart : MonoBehaviour
         {
             if (!_isRunStartTriggered)
             {
-                _animationController.SetRunStartTrigger();
+                _jvAnimationControl.SetRunStartTrigger();
                 _isRunStartTriggered = true;
             }
             _runner.Run();
