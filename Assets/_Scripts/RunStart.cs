@@ -8,7 +8,7 @@ public class RunStart : MonoBehaviour
     private IGameGo _gameGo;
     private IRunner _runner;
     private IJVAnimationControl _jvAnimationControl;
-    private bool _isRunStartTriggered;
+    public bool _isRunStartTriggered;
 
     [SerializeField] private float _speed = 5f;
 
