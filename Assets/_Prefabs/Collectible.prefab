@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5727414514464766671}
   - component: {fileID: 6953805608383400408}
   - component: {fileID: 4427029331059554695}
+  - component: {fileID: 1123533345256907166}
   m_Layer: 0
   m_Name: Collectible
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &886520963861283996
 MeshFilter:
@@ -133,3 +134,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1123533345256907166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8299893343794500798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a38ea848dd5b4b458c67f0906189c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

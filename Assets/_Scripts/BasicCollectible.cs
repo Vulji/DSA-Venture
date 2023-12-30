@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectBehaviour : MonoBehaviour
+public class BasicCollectible : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,12 @@ public class CollectBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Colliding");
-        Destroy(other.gameObject);
+        CollectibleBehaviour();
+    }
+
+    virtual public void CollectibleBehaviour()
+    {
+        Handheld.Vibrate();
+        Destroy(gameObject);
     }
 }
