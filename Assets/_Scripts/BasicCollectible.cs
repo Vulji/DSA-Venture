@@ -4,26 +4,18 @@ using UnityEngine;
 
 public class BasicCollectible : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "Player")
         CollectibleBehaviour();
     }
 
     virtual public void CollectibleBehaviour()
     {
         Handheld.Vibrate();
-        Destroy(gameObject);
+
+        Destroy(gameObject, 1.5f);
     }
 }

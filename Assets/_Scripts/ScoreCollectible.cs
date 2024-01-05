@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class ScoreCollectible : BasicCollectible
 {
-  
 
-    // Start is called before the first frame update
-    void Start()
+    private ParticleSystem _collectibleParticleSystem;
+
+
+    private void Awake()
     {
-        
+        _collectibleParticleSystem = GetComponent<ParticleSystem>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public override void CollectibleBehaviour()
     {
+        _collectibleParticleSystem.Play();
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
         base.CollectibleBehaviour();
         GameManager.Instance.Score += 1000;
-        Debug.Log(GameManager.Instance.Score);
     }
 }

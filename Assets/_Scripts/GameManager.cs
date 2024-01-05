@@ -5,12 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public float score;
+    [SerializeField] private float _score;
 
     public float Score
     {
-        get => score;
-        set => score = value;
+        get => _score;
+        set => _score = value;
     }
 
     private void Awake()

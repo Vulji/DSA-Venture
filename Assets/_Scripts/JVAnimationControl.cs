@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class JVAnimationControl : MonoBehaviour, IJVAnimationControl
 {
+    [SerializeField] private GameObject _player;
     private Animator _jvAnimator;
 
     private void Awake()
     {
-        _jvAnimator = FindObjectOfType<Animator>();
+
+        _jvAnimator = _player.GetComponent<Animator>();
     }
 
     public void SetRunStartTrigger()
