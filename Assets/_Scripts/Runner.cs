@@ -16,6 +16,8 @@ public class Runner : IRunner
 
     public void Run()
     {
+        if (_runnerPlayer != null) { return; }
+
         _runnerPlayer.transform.position += Vector3.forward * _runnerSpeed * Time.deltaTime;
 
         // Clamp the x position between -0.8 and 0.8

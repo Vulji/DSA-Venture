@@ -135,8 +135,8 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   bundleVersion: 1.0.2
   preloadedAssets:
-  - {fileID: -4009733822333576435, guid: 8f40abe6100804a43aac3fae6026c8b5, type: 2}
   - {fileID: 11400000, guid: b7c9f3ca65f3bf04b800311592eef6a0, type: 2}
+  - {fileID: -4009733822333576435, guid: 8f40abe6100804a43aac3fae6026c8b5, type: 2}
   - {fileID: 11400000, guid: 7ddf469b52c40b0488322672334613b9, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -912,7 +912,14 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -932,11 +939,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: cb84189f-666e-4825-bf5f-bee67bb1911b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: DSA Venture
+  organizationId: vulji
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

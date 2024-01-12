@@ -9,8 +9,9 @@ public class RunStart : MonoBehaviour
     private IRunner _runner;
     private IJVAnimationControl _jvAnimationControl;
     public bool _isRunStartTriggered;
+    public bool _isTapStartTriggered;
 
-    [SerializeField] private float _speed = 5f;
+    //[SerializeField] private float _speed = 5f;
 
     public void Initialize(IGameGo gameGo, IRunner runner, IJVAnimationControl animationController)
     {
@@ -22,7 +23,16 @@ public class RunStart : MonoBehaviour
     private void Update()
     {
         bool isGameStarted = _gameGo.IsStarted();
-        if (isGameStarted)
+        bool isTapStarted = _gameGo.GoalTapStarted;
+        if (isTapStarted)
+        {
+            if (!_isTapStartTriggered)
+            {
+                _jvAnimationControl.SetDanceTrigger();
+                _isTapStartTriggered = true;
+            }
+        }
+        if (isGameStarted & !isTapStarted)
         {
             if (!_isRunStartTriggered)
             {

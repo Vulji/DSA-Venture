@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyCollectible : BasicCollectible
@@ -9,13 +10,28 @@ public class EnemyCollectible : BasicCollectible
     private void Awake()
     {
         _enemyAnimator = GetComponent<Animator>();
+        ScoreAdded = 2000;
     }
 
     public override void CollectibleBehaviour()
     {
-        Debug.Log("I'm dead");
         _enemyAnimator.SetTrigger("Death");
         base.CollectibleBehaviour();
-        GameManager.Instance.Score += 2000;
     }
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent(out IDamageable damageInterface)) 
+        { 
+            damageInterface.TakeDamage();
+        }
+    }
+
+    //public void InflictDamage(Collider other)
+    //{
+    //    if (other.gameObject.tag =="Player")
+    //    Destroy(other.gameObject);
+    //}
 }

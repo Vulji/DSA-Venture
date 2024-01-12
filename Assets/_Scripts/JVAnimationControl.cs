@@ -17,4 +17,9 @@ public class JVAnimationControl : MonoBehaviour, IJVAnimationControl
     {
         _jvAnimator.SetTrigger("RunStart");
     }
+
+    public void SetDanceTrigger() 
+    {
+        _jvAnimator.SetTrigger("DanceStart");
+    }
 }

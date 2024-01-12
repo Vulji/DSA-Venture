@@ -1,15 +1,30 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameGo : MonoBehaviour, IGameGo
 {
     [SerializeField] private InputActionAsset _touchScreen;
     [SerializeField] private GameObject _player;
+
     private InputAction _pressScreenAction;
     private InputAction _positionScreenAction;
+
     private bool _started;
+    [SerializeField] private bool _goalTapStarted;
+
+    private int _currentTapGauge = 0;
+    private int _maxTapGauge = 10;
+
+    public delegate void OnTapGaugeFull();
+    public static event OnTapGaugeFull onTapGaugeFull;
+
+    public bool GoalTapStarted
+    {
+        get => _goalTapStarted;
+        set => _goalTapStarted = value;
+    }
 
     private void Awake()
     {
@@ -19,29 +34,45 @@ public class GameGo : MonoBehaviour, IGameGo
 
     private void OnEnable()
     {
+        onTapGaugeFull += ResetLevel;
+
         _pressScreenAction.Enable();
         _positionScreenAction.Enable();
         _pressScreenAction.started += OnPressScreenStarted;
         _positionScreenAction.performed += OnSlideMove;
-        _positionScreenAction.canceled += OnSlideMoveCanceled;
     }
 
     private void OnDisable()
     {
+        onTapGaugeFull -= ResetLevel;
+
         _pressScreenAction.Disable();
         _positionScreenAction.Disable();
         _pressScreenAction.started -= OnPressScreenStarted;
         _positionScreenAction.performed -= OnSlideMove;
-        _positionScreenAction.canceled -= OnSlideMoveCanceled;
     }
 
     private void OnPressScreenStarted(InputAction.CallbackContext context)
     {
         _started = true;
+
+        if (_goalTapStarted)
+        {
+            _currentTapGauge++;
+            Debug.Log(_currentTapGauge);
+
+            if (_currentTapGauge >= _maxTapGauge)
+            {
+                onTapGaugeFull();
+            }
+        }
     }
 
     private void OnSlideMove(InputAction.CallbackContext context)
     {
+        if (_goalTapStarted)
+            return;
+
         Vector2 inputPosition = _positionScreenAction.ReadValue<Vector2>();
 
         Vector2 normalizedInput = new Vector2(
@@ -67,12 +98,9 @@ public class GameGo : MonoBehaviour, IGameGo
         );
     }
 
-
-
-
-    private void OnSlideMoveCanceled(InputAction.CallbackContext context)
+    private void ResetLevel()
     {
-        // Additional logic for slide move canceled
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public bool IsStarted()

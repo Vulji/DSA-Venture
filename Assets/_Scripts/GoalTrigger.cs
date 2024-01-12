@@ -5,11 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
+    GameGo _gameGo;
+    private void Awake()
+    {
+        _gameGo = FindObjectOfType<GameGo>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            _gameGo.GoalTapStarted=true;
+            
         }
     }
 }
