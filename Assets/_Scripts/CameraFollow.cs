@@ -22,6 +22,7 @@ public class CameraFollow : MonoBehaviour, IFollowTarget
 
     private void LateUpdate()
     {
+        if(_target == null) { return; }
         UpdatePosition(_target.position);
     }
 }

@@ -16,7 +16,7 @@ public class Runner : IRunner
 
     public void Run()
     {
-        if (_runnerPlayer != null) { return; }
+        if (_runnerPlayer == null) { return; }
 
         _runnerPlayer.transform.position += Vector3.forward * _runnerSpeed * Time.deltaTime;
 

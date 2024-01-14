@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class GameGo : MonoBehaviour, IGameGo
+public class GameGo : MonoBehaviour, IGameGo, IResetLevel
 {
     [SerializeField] private InputActionAsset _touchScreen;
     [SerializeField] private GameObject _player;
@@ -16,6 +16,7 @@ public class GameGo : MonoBehaviour, IGameGo
 
     private int _currentTapGauge = 0;
     private int _maxTapGauge = 10;
+
 
     public delegate void OnTapGaugeFull();
     public static event OnTapGaugeFull onTapGaugeFull;
@@ -30,10 +31,12 @@ public class GameGo : MonoBehaviour, IGameGo
     {
         _pressScreenAction = _touchScreen.FindAction("PressScreen");
         _positionScreenAction = _touchScreen.FindAction("Move");
+
     }
 
     private void OnEnable()
     {
+
         onTapGaugeFull += ResetLevel;
 
         _pressScreenAction.Enable();
@@ -44,6 +47,7 @@ public class GameGo : MonoBehaviour, IGameGo
 
     private void OnDisable()
     {
+
         onTapGaugeFull -= ResetLevel;
 
         _pressScreenAction.Disable();
@@ -63,14 +67,21 @@ public class GameGo : MonoBehaviour, IGameGo
 
             if (_currentTapGauge >= _maxTapGauge)
             {
-                onTapGaugeFull();
+                if (GameManager.Instance != null)
+                    onTapGaugeFull();
             }
         }
     }
 
+
+    public void ResetLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     private void OnSlideMove(InputAction.CallbackContext context)
     {
-        if (_goalTapStarted)
+        if (_goalTapStarted || _player == null)
             return;
 
         Vector2 inputPosition = _positionScreenAction.ReadValue<Vector2>();
@@ -98,10 +109,7 @@ public class GameGo : MonoBehaviour, IGameGo
         );
     }
 
-    private void ResetLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+
 
     public bool IsStarted()
     {

@@ -18,20 +18,4 @@ public class EnemyCollectible : BasicCollectible
         _enemyAnimator.SetTrigger("Death");
         base.CollectibleBehaviour();
     }
-
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out IDamageable damageInterface)) 
-        { 
-            damageInterface.TakeDamage();
-        }
-    }
-
-    //public void InflictDamage(Collider other)
-    //{
-    //    if (other.gameObject.tag =="Player")
-    //    Destroy(other.gameObject);
-    //}
 }

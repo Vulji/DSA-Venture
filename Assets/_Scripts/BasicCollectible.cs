@@ -16,6 +16,8 @@ public class BasicCollectible : MonoBehaviour, IScoreAddition
         GameManager.Instance.Score += ScoreAdded;
     }
 
+
+
     virtual public void CollectibleBehaviour()
     {
         Handheld.Vibrate();

@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IResetLevel
 {
     public static GameManager Instance;
     [SerializeField] private float _score;
+    [SerializeField] private Player _player;
+
+    public delegate void OnDeath();
+    public static event OnDeath onDeath;
 
     public float Score
     {
@@ -25,14 +30,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
+        onDeath += ResetLevel;
     }
 
-    // Update is called once per frame
+    private void OnDisable()
+    {
+        onDeath -= ResetLevel;
+    }
+
+    public void ResetLevel()
+    {
+        StartCoroutine("ResetLevelCor");
+    }
+
+    IEnumerator ResetLevelCor()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
     void Update()
     {
-
+        if (_player != null) { return; }
+        else
+        {
+            onDeath();
+        }
     }
 }
