@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour, IResetLevel
 
     public delegate void OnDeath();
     public static event OnDeath onDeath;
+
+    [Header("Feedbacks")]
+    public MMFeedbacks ParticlesInstantiation;
 
     public float Score
     {
@@ -28,16 +32,26 @@ public class GameManager : MonoBehaviour, IResetLevel
         {
             Destroy(gameObject);
         }
+
     }
 
     private void OnEnable()
     {
         onDeath += ResetLevel;
+        onDeath += DeathEffect;
     }
 
     private void OnDisable()
     {
         onDeath -= ResetLevel;
+        onDeath -= DeathEffect;
+    }
+
+    private void DeathEffect()
+    {
+        ParticlesInstantiation?.PlayFeedbacks();
+
+
     }
 
     public void ResetLevel()
@@ -54,7 +68,12 @@ public class GameManager : MonoBehaviour, IResetLevel
 
     void Update()
     {
-        if (_player != null) { return; }
+
+        if (_player != null)
+        {
+            //_cachePlayerTransform.position = _player.transform.position;
+            return;
+        }
         else
         {
             onDeath();
