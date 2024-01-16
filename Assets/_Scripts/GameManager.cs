@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour, IResetLevel
     public static event OnDeath onDeath;
 
     [Header("Feedbacks")]
-    public MMFeedbacks ParticlesInstantiation;
+    public MMFeedbacks DeathFeedbacks;
 
     public float Score
     {
@@ -49,9 +49,7 @@ public class GameManager : MonoBehaviour, IResetLevel
 
     private void DeathEffect()
     {
-        ParticlesInstantiation?.PlayFeedbacks();
-
-
+        DeathFeedbacks?.PlayFeedbacks();
     }
 
     public void ResetLevel()
