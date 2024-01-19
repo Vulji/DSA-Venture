@@ -1,6 +1,7 @@
 using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,16 +34,20 @@ public class GameManager : MonoBehaviour, IResetLevel
             Destroy(gameObject);
         }
 
+        LoadSave();
     }
+
 
     private void OnEnable()
     {
+        //SceneManager.sceneLoaded += OnLevelLoadded;
         onDeath += ResetLevel;
         onDeath += DeathEffect;
     }
 
     private void OnDisable()
     {
+        //SceneManager.sceneLoaded -= OnLevelLoadded;
         onDeath -= ResetLevel;
         onDeath -= DeathEffect;
     }
@@ -57,11 +62,31 @@ public class GameManager : MonoBehaviour, IResetLevel
         StartCoroutine("ResetLevelCor");
     }
 
+    //public void OnLevelLoadded(Scene scene, LoadSceneMode mode)
+    //{
+    //    LoadSave();
+    //}
+
+    public void LoadSave()
+    {
+        string saveString = SaveSystem.Load();
+        if (saveString != null)
+        {
+            PlayerData playerData = JsonUtility.FromJson<PlayerData>(saveString);
+
+            Score = playerData.SavedScore;
+        }
+        else
+        {
+            Debug.LogWarning("No save found");
+        }
+
+    }
+
     IEnumerator ResetLevelCor()
     {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
     }
 
     void Update()
@@ -69,7 +94,6 @@ public class GameManager : MonoBehaviour, IResetLevel
 
         if (_player != null)
         {
-            //_cachePlayerTransform.position = _player.transform.position;
             return;
         }
         else

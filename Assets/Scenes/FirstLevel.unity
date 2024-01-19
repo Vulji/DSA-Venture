@@ -795,6 +795,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e3d4cb7cc16804c94fc4157298ce97, type: 3}
+--- !u!137 &290883214 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2269910244329847036, guid: 4ead0baec41098c488fd0b71e0f5f87e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5900635154746630606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &291073251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -921,7 +927,181 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b77c4d6e9d6b20458830f576eb8054c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParticlesInstantiation: {fileID: 0}
+  PlayerFeedbacks: {fileID: 325147386}
+--- !u!114 &325147386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325147377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Feedbacks: []
+  InitializationMode: 0
+  AutoInitialization: 1
+  SafeMode: 3
+  Direction: 0
+  AutoChangeDirectionOnEnd: 0
+  AutoPlayOnStart: 0
+  AutoPlayOnEnable: 0
+  ForceTimescaleMode: 0
+  ForcedTimescaleMode: 1
+  DurationMultiplier: 1
+  RandomizeDuration: 0
+  RandomDurationMultiplier: {x: 0.5, y: 1.5}
+  DisplayFullDurationDetails: 0
+  PlayerTimescaleMode: 1
+  OnlyPlayIfWithinRange: 0
+  RangeCenter: {fileID: 0}
+  RangeDistance: 5
+  UseRangeFalloff: 0
+  RangeFalloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  RemapRangeFalloff: {x: 0, y: 1}
+  IgnoreRangeEvents: 0
+  CooldownDuration: 0
+  InitialDelay: 0
+  CanPlay: 1
+  CanPlayWhileAlreadyPlaying: 0
+  ChanceToPlay: 100
+  FeedbacksIntensity: 1
+  Events:
+    TriggerMMFeedbacksEvents: 0
+    TriggerUnityEvents: 1
+    OnPlay:
+      m_PersistentCalls:
+        m_Calls: []
+    OnPause:
+      m_PersistentCalls:
+        m_Calls: []
+    OnResume:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRevert:
+      m_PersistentCalls:
+        m_Calls: []
+    OnComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    OnRestoreInitialValues:
+      m_PersistentCalls:
+        m_Calls: []
+    OnSkipToTheEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  DebugActive: 0
+  FeedbacksList:
+  - rid: 802792321553530880
+  KeepPlayModeChanges: 0
+  PerformanceMode: 0
+  StopFeedbacksOnDisable: 1
+  PlayCount: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 802792321553530880
+      type: {class: MMF_Flicker, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
+      data:
+        Active: 1
+        UniqueID: -1410419372
+        Label: Flicker
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 0
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 10
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        Owner: {fileID: 325147386}
+        DebugActive: 0
+        BoundRenderer: {fileID: 290883214}
+        Mode: 0
+        PropertyName: _Tint
+        FlickerDuration: 1
+        FlickerOctave: 0.04
+        FlickerColor: {r: 1, g: 0.078431375, b: 0.078431375, a: 1}
+        MaterialIndexes: 
+        UseMaterialPropertyBlocks: 0
+        SpriteRendererTextureProperty: _MainTex
 --- !u!4 &355877625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5177691265783271218, guid: 81fdfbe67da2133429457b5bcac88275,
@@ -3493,6 +3673,7 @@ MonoBehaviour:
   FeedbacksList:
   - rid: 802792277489745922
   - rid: 802792299148345344
+  - rid: 802792321553530880
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   StopFeedbacksOnDisable: 1
@@ -3648,6 +3829,83 @@ MonoBehaviour:
         FlashDuration: 0.025
         FlashAlpha: 10
         FlashID: 1
+    - rid: 802792321553530880
+      type: {class: MMF_Flicker, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
+      data:
+        Active: 1
+        UniqueID: -1410419372
+        Label: Flicker
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 1
+          RepeatForever: 0
+          DelayBetweenRepeats: 10
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        Owner: {fileID: 1679474982}
+        DebugActive: 0
+        BoundRenderer: {fileID: 290883214}
+        Mode: 0
+        PropertyName: _Tint
+        FlickerDuration: 0.5
+        FlickerOctave: 0.04
+        FlickerColor: {r: 1, g: 0.078431375, b: 0.078431375, a: 1}
+        MaterialIndexes: 
+        UseMaterialPropertyBlocks: 0
+        SpriteRendererTextureProperty: _MainTex
 --- !u!1001 &1762799334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4629,6 +4887,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 325147384}
+    - targetCorrespondingSourceObject: {fileID: 7645276806193593720, guid: 4ead0baec41098c488fd0b71e0f5f87e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 325147386}
   m_SourcePrefab: {fileID: 100100000, guid: 4ead0baec41098c488fd0b71e0f5f87e, type: 3}
 --- !u!1001 &8276886467168025972
 PrefabInstance:
@@ -4681,7 +4943,7 @@ PrefabInstance:
     - target: {fileID: 6534445096089927778, guid: 54854f9967adb894cbe046a8014e8215,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 69.39
+      value: 70.08
       objectReference: {fileID: 0}
     - target: {fileID: 6534445096089927778, guid: 54854f9967adb894cbe046a8014e8215,
         type: 3}

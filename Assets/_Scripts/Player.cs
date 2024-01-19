@@ -6,19 +6,18 @@ using UnityEngine;
 public class Player : MonoBehaviour, IDamageable
 {
     [Header("Feedbacks")]
-    public MMFeedbacks ParticlesInstantiation;
+    public MMFeedbacks PlayerFeedbacks;
 
     private void Awake()
     {
-        //if (ParticlesInstantiation == null)
-        //{
-        //    ParticlesInstantiation = gameObject.GetComponent<MMFeedbacks>();
-        //}
     }
 
     public void TakeDamage()
     {
-        Destroy(gameObject);
+        
+        PlayerFeedbacks.PlayFeedbacks();
+        GameManager.Instance.Score -= 2000;
+        //Destroy(gameObject);
 
     }
 

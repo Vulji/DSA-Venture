@@ -15,7 +15,9 @@ public class GoalTrigger : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            SaveSystem.Save();
             _gameGo.GoalTapStarted=true;
+
             
         }
     }
