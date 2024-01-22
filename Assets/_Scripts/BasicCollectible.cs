@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicCollectible : MonoBehaviour, IScoreAddition
+public class BasicCollectible : MonoBehaviour
 {
+    public int LevelAdded;
     public int ScoreAdded;
 
     private void OnTriggerEnter(Collider other)
@@ -11,18 +12,10 @@ public class BasicCollectible : MonoBehaviour, IScoreAddition
         if(other.tag == "Player")
         CollectibleBehaviour();
     }
-    public void ScoreAddition()
-    {
-        GameManager.Instance.Score += ScoreAdded;
-    }
-
-
 
     virtual public void CollectibleBehaviour()
     {
         Handheld.Vibrate();
-
-        ScoreAddition();
         Destroy(gameObject, 1.5f);
     }
 

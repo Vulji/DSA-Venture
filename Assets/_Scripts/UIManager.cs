@@ -5,11 +5,13 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-     [SerializeField] private TextMeshProUGUI _scoreTexte;
+     [SerializeField] private TextMeshProUGUI _scoreText;
+     [SerializeField] private TextMeshProUGUI _levelText;
 
     // Update is called once per frame
     void Update()
     {
-        _scoreTexte.text = "Score:" + GameManager.Instance.Score;
+        _scoreText.text = "Score:" + GameManager.Instance.Score;
+        _levelText.text = "Level:" + GameManager.Instance.Level;
     }
 }

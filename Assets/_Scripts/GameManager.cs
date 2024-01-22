@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour, IResetLevel
 {
     public static GameManager Instance;
-    [SerializeField] private float _score;
+    [SerializeField] private int _score;
+    [SerializeField] private int _level;
     [SerializeField] private Player _player;
 
     public delegate void OnDeath();
@@ -17,10 +18,16 @@ public class GameManager : MonoBehaviour, IResetLevel
     [Header("Feedbacks")]
     public MMFeedbacks DeathFeedbacks;
 
-    public float Score
+    public int Score
     {
         get => _score;
         set => _score = value;
+    }
+
+    public int Level
+    {
+        get => _level;
+        set => _level = value;
     }
 
     private void Awake()

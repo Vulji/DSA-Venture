@@ -28,7 +28,7 @@ public static class SaveSystem
     }
 }
 
-public class PlayerData
+public struct PlayerData
 {
-    public float SavedScore;
+    public int SavedScore;
 }

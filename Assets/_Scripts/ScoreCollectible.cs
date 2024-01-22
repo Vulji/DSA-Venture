@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreCollectible : BasicCollectible
+public class ScoreCollectible : BasicCollectible, IScoreAddition
 {
 
     private ParticleSystem _collectibleParticleSystem;
@@ -15,9 +15,15 @@ public class ScoreCollectible : BasicCollectible
         ScoreAdded = 1000;
     }
 
+    public void ScoreAddition()
+    {
+        GameManager.Instance.Score += ScoreAdded;
+    }
+
 
     public override void CollectibleBehaviour()
     {
+        ScoreAddition();
         _collectibleParticleSystem.Play();
         _audioSource.Play();
         gameObject.GetComponent<MeshRenderer>().enabled = false;

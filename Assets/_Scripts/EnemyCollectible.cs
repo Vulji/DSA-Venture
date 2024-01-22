@@ -10,11 +10,12 @@ public class EnemyCollectible : BasicCollectible
     private void Awake()
     {
         _enemyAnimator = GetComponent<Animator>();
-        ScoreAdded = 2000;
+        LevelAdded = 2;
     }
 
     public override void CollectibleBehaviour()
     {
+        GameManager.Instance.Level += LevelAdded;
         _enemyAnimator.SetTrigger("Death");
         base.CollectibleBehaviour();
     }
