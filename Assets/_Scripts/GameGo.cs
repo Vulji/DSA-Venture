@@ -7,11 +7,14 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
 {
     [SerializeField] private InputActionAsset _touchScreen;
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _slideText;
 
     private InputAction _pressScreenAction;
     private InputAction _positionScreenAction;
+    private InputAction _pauseGame;
 
     private bool _started;
+    private bool _paused;
     [SerializeField] private bool _goalTapStarted;
 
     private int _currentTapGauge = 0;
@@ -31,6 +34,7 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
     {
         _pressScreenAction = _touchScreen.FindAction("PressScreen");
         _positionScreenAction = _touchScreen.FindAction("Move");
+        _pauseGame = _touchScreen.FindAction("Pause");
 
     }
 
@@ -41,8 +45,11 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
 
         _pressScreenAction.Enable();
         _positionScreenAction.Enable();
+        _pauseGame.Enable();
+
         _pressScreenAction.started += OnPressScreenStarted;
         _positionScreenAction.performed += OnSlideMove;
+        _pauseGame.started += OnPauseButton;
     }
 
     private void OnDisable()
@@ -52,13 +59,17 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
 
         _pressScreenAction.Disable();
         _positionScreenAction.Disable();
+        _pauseGame.Disable();
+        
         _pressScreenAction.started -= OnPressScreenStarted;
         _positionScreenAction.performed -= OnSlideMove;
+        _pauseGame.started -= OnPauseButton;
     }
 
     private void OnPressScreenStarted(InputAction.CallbackContext context)
     {
         _started = true;
+        _slideText.SetActive(false);
 
         if (_goalTapStarted)
         {
@@ -73,6 +84,19 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
         }
     }
 
+    private void OnPauseButton(InputAction.CallbackContext context)
+    {
+        if(!_paused) 
+        { 
+            Time.timeScale = 0.0f;
+            _paused = true;
+        }
+        else if (_paused) 
+        { 
+            Time.timeScale = 1.0f;
+            _paused = false;
+        }
+    }
 
     public void ResetLevel()
     {
