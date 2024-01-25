@@ -8,6 +8,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int _level;
     private Animator _bigEnemyAnimator;
 
+
+    public int Level
+    {
+        get => _level;
+        set => _level = value;
+    }
+
     private void Awake()
     {
         _bigEnemyAnimator = GetComponent<Animator>();
