@@ -8,15 +8,20 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour, IResetLevel
 {
     public static GameManager Instance;
+
+    [Header("UI Int")]
     [SerializeField] private int _score;
     [SerializeField] private int _level;
+
+    [Header("Characters")]
     [SerializeField] private Player _player;
+    
+    [Header("Feedbacks")]
+    public MMFeedbacks DeathFeedbacks;
 
     public delegate void OnDeath();
     public static event OnDeath onDeath;
 
-    [Header("Feedbacks")]
-    public MMFeedbacks DeathFeedbacks;
 
     public int Score
     {
@@ -71,6 +76,7 @@ public class GameManager : MonoBehaviour, IResetLevel
 
     //public void OnLevelLoadded(Scene scene, LoadSceneMode mode)
     //{
+    //     Try to work solution to make the load save work with the sceneLoaded event
     //    LoadSave();
     //}
 

@@ -6,6 +6,12 @@ public class BasicCollectible : MonoBehaviour
 {
     public int LevelAdded;
     public int ScoreAdded;
+    public AudioSource _audioSource;
+
+    virtual public void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +21,8 @@ public class BasicCollectible : MonoBehaviour
 
     virtual public void CollectibleBehaviour()
     {
+
+        _audioSource.Play();
         Handheld.Vibrate();
         Destroy(gameObject, 1.5f);
     }

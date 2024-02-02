@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GoalTrigger : MonoBehaviour
 {
-    GameGo _gameGo;
+    private GameGo _gameGo;
+    
     private void Awake()
     {
         _gameGo = FindObjectOfType<GameGo>();
@@ -16,9 +17,7 @@ public class GoalTrigger : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             SaveSystem.Save();
-            _gameGo.GoalTapStarted=true;
-
-            
+            _gameGo.GoalTapStarted=true;    
         }
     }
 }

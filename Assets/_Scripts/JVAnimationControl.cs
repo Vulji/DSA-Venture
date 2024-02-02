@@ -9,7 +9,6 @@ public class JVAnimationControl : MonoBehaviour, IJVAnimationControl
 
     private void Awake()
     {
-
         _jvAnimator = _player.GetComponent<Animator>();
     }
 

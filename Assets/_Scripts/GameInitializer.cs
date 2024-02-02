@@ -5,13 +5,17 @@ using UnityEngine;
 public class GameInitializer : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
-    [SerializeField] private RunStart _runStart;
+    [SerializeField] private RunManagement _runStart;
     [SerializeField] private GameGo _gameGo;
     [SerializeField] private JVAnimationControl _jvAnimationControl;
+    [SerializeField] private float _startSpeed;
+
+    [SerializeField] private IRunner runner;
+
 
     private void Awake()
     {
-        IRunner runner = new Runner(_player, 5f);
+        runner = new Runner(_player, _startSpeed);
         _runStart.Initialize(_gameGo, runner, _jvAnimationControl);
     }
 }

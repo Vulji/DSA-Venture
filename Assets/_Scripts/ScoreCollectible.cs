@@ -6,12 +6,12 @@ public class ScoreCollectible : BasicCollectible, IScoreAddition
 {
 
     private ParticleSystem _collectibleParticleSystem;
-    private AudioSource _audioSource;
+    
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         _collectibleParticleSystem = GetComponent<ParticleSystem>();
-        _audioSource = GetComponent<AudioSource>();
         ScoreAdded = 1000;
     }
 
@@ -25,7 +25,6 @@ public class ScoreCollectible : BasicCollectible, IScoreAddition
     {
         ScoreAddition();
         _collectibleParticleSystem.Play();
-        _audioSource.Play();
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         base.CollectibleBehaviour();
     }

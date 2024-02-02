@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameGo : MonoBehaviour, IGameGo, IResetLevel
 {
+    [Header("Needed")]
     [SerializeField] private InputActionAsset _touchScreen;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _slideText;

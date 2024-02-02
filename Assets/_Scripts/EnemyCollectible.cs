@@ -7,8 +7,9 @@ public class EnemyCollectible : BasicCollectible
 {
     private Animator _enemyAnimator;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         _enemyAnimator = GetComponent<Animator>();
         LevelAdded = 2;
     }
