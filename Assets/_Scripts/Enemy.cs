@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
         else if (other.gameObject.tag == "Player" && GameManager.Instance.Level > _level)
         {
             _shakeFeeback.PlayFeedbacks();
+            other.gameObject.GetComponent<Animator>().SetTrigger("Punch");
             _bigEnemyAnimator.SetTrigger("Death");
             _audioSource.Play();
             Destroy(gameObject, 1.5f);

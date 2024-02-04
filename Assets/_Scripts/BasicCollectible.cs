@@ -13,7 +13,7 @@ public class BasicCollectible : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    virtual public void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         CollectibleBehaviour();
