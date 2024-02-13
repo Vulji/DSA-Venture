@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GoalTrigger : MonoBehaviour
 {
     private GameGo _gameGo;
-    [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private ParticleSystem[] _particleSystem;
 
     private void Awake()
     {
@@ -18,7 +18,10 @@ public class GoalTrigger : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             SaveSystem.Save();
-            _particleSystem.Play();
+            foreach (var item in _particleSystem)
+            {
+                item.Play();
+            };
             AudioManager.Instance.PlayAudio(1);
             _gameGo.GoalTapStarted=true;    
         }

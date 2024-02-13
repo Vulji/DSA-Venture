@@ -23,8 +23,10 @@ public class DashPanel : MonoBehaviour
     IEnumerator Acceleration()
     {
         _runManagement.NewAccelerationSpeed += 30;
+        GameManager.Instance.Level += 10;
        yield return new WaitForSeconds(1f);
         _runManagement.NewAccelerationSpeed = 0;
+        GameManager.Instance.Level -= 10;
     }
 
 }

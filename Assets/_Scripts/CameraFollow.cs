@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour, IFollowTarget
 {
     [SerializeField] private Transform _target;
-    private float _offset = 3.5f;
+    [SerializeField] private float _offset = 3.5f;
 
     private Transform _transform;
 
