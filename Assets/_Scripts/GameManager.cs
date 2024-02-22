@@ -71,16 +71,16 @@ public class GameManager : MonoBehaviour, IResetLevel
 
     public void ResetLevel()
     {
-        StartCoroutine("ResetLevelCor");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    //public void OnLevelLoadded(Scene scene, LoadSceneMode mode)
-    //{
-    //     Try to work solution to make the load save work with the sceneLoaded event
-    //    LoadSave();
-    //}
+        //public void OnLevelLoadded(Scene scene, LoadSceneMode mode)
+        //{
+        //     Try to work solution to make the load save work with the sceneLoaded event
+        //    LoadSave();
+        //}
 
-    public void LoadSave()
+        public void LoadSave()
     {
         string saveString = SaveSystem.Load();
         if (saveString != null)
@@ -96,11 +96,11 @@ public class GameManager : MonoBehaviour, IResetLevel
 
     }
 
-    IEnumerator ResetLevelCor()
-    {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    //IEnumerator ResetLevelCor()
+    //{
+    //    yield return new WaitForSeconds(2f);
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //}
 
     void Update()
     {

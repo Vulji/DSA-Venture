@@ -74,14 +74,16 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
 
         if (_goalTapStarted)
         {
-            _currentTapGauge++;
-            Debug.Log(_currentTapGauge);
 
-            if (_currentTapGauge >= _maxTapGauge)
-            {
-                if (GameManager.Instance != null)
-                    onTapGaugeFull();
-            }
+
+            //_currentTapGauge++;
+            //Debug.Log(_currentTapGauge);
+
+            //if (_currentTapGauge >= _maxTapGauge)
+            //{
+            //    if (GameManager.Instance != null)
+            //        onTapGaugeFull();
+            //}
         }
     }
 

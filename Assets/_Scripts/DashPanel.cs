@@ -5,7 +5,7 @@ using UnityEngine;
 public class DashPanel : MonoBehaviour
 {
     private RunManagement _runManagement;
-
+    [SerializeField] private ParticleSystem _speedLines;
 
     private void Awake()
     {
@@ -24,6 +24,9 @@ public class DashPanel : MonoBehaviour
     {
         _runManagement.NewAccelerationSpeed += 30;
         GameManager.Instance.Level += 10;
+        _speedLines.Play();
+        AudioManager.Instance.PlayAudio(2);
+
        yield return new WaitForSeconds(1f);
         _runManagement.NewAccelerationSpeed = 0;
         GameManager.Instance.Level -= 10;
