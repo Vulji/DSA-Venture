@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashPanel : MonoBehaviour
+public class DashPanel : BasePanel
 {
     private RunManagement _runManagement;
     [SerializeField] private ParticleSystem _speedLines;
@@ -10,14 +10,13 @@ public class DashPanel : MonoBehaviour
     private void Awake()
     {
         _runManagement = FindObjectOfType<RunManagement>();
+        SoundName = "Boost";
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void PanelBehaviour()
     {
-        if (other.tag == "Player")
-        {
-            StartCoroutine("Acceleration");
-        }
+        base.PanelBehaviour();
+        StartCoroutine("Acceleration");
     }
 
     IEnumerator Acceleration()
@@ -25,7 +24,7 @@ public class DashPanel : MonoBehaviour
         _runManagement.NewAccelerationSpeed += 30;
         GameManager.Instance.Level += 10;
         _speedLines.Play();
-        AudioManager.Instance.PlayAudio(2);
+
 
        yield return new WaitForSeconds(1f);
         _runManagement.NewAccelerationSpeed = 0;

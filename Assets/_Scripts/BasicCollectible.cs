@@ -7,6 +7,7 @@ public class BasicCollectible : MonoBehaviour
     public int LevelAdded;
     public int ScoreAdded;
     public AudioSource _audioSource;
+    public string SoundName;
 
     virtual public void Awake()
     {
@@ -21,8 +22,8 @@ public class BasicCollectible : MonoBehaviour
 
     virtual public void CollectibleBehaviour()
     {
-
-        _audioSource.Play();
+        AudioManager.Instance.PlaySound(SoundName);
+        //_audioSource.Play();
         Handheld.Vibrate();
         Destroy(gameObject, 1.5f);
     }

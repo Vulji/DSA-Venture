@@ -1,7 +1,6 @@
 using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,9 +14,11 @@ public class GameManager : MonoBehaviour, IResetLevel
 
     [Header("Characters")]
     [SerializeField] private Player _player;
-    
+
     [Header("Feedbacks")]
     public MMFeedbacks DeathFeedbacks;
+    [SerializeField] private MMFeedbacks _bigEnemyDeathFeedbacks;
+    [SerializeField] private MMFeedbacks _smallEnemyDeathFeedbacks;
 
     public delegate void OnDeath();
     public static event OnDeath onDeath;
@@ -54,17 +55,32 @@ public class GameManager : MonoBehaviour, IResetLevel
     {
         //SceneManager.sceneLoaded += OnLevelLoadded;
         onDeath += ResetLevel;
-        onDeath += DeathEffect;
+        onDeath += PLayerDeathEffect;
+        Enemy.onBigEnemyDeath += BigEnemyDeathEffect;
+        //EnemyCollectible.onSmallEnemyDeath += SmallEnemyDeathEffect;
+
     }
 
     private void OnDisable()
     {
         //SceneManager.sceneLoaded -= OnLevelLoadded;
         onDeath -= ResetLevel;
-        onDeath -= DeathEffect;
+        onDeath -= PLayerDeathEffect;
+        Enemy.onBigEnemyDeath -= BigEnemyDeathEffect;
+        //EnemyCollectible.onSmallEnemyDeath -= SmallEnemyDeathEffect;
+
     }
 
-    private void DeathEffect()
+    private void BigEnemyDeathEffect(Enemy enemy)
+    {
+        _bigEnemyDeathFeedbacks.PlayFeedbacks();
+    }
+    
+    private void SmallEnemyDeathEffect(EnemyCollectible enemy)
+    {
+        _smallEnemyDeathFeedbacks.PlayFeedbacks();
+    }
+    private void PLayerDeathEffect()
     {
         DeathFeedbacks?.PlayFeedbacks();
     }
@@ -94,6 +110,11 @@ public class GameManager : MonoBehaviour, IResetLevel
             Debug.LogWarning("No save found");
         }
 
+    }
+
+    public void NextLevel(int level)
+    {
+        SceneManager.LoadScene(level);
     }
 
     //IEnumerator ResetLevelCor()

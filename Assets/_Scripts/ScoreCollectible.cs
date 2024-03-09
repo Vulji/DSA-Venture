@@ -13,6 +13,7 @@ public class ScoreCollectible : BasicCollectible, IScoreAddition
         base.Awake();
         _collectibleParticleSystem = GetComponent<ParticleSystem>();
         ScoreAdded = 1000;
+        SoundName = "Diamond";
     }
 
     public void ScoreAddition()
@@ -23,9 +24,10 @@ public class ScoreCollectible : BasicCollectible, IScoreAddition
 
     public override void CollectibleBehaviour()
     {
+        
         ScoreAddition();
         _collectibleParticleSystem.Play();
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
         base.CollectibleBehaviour();
     }
 }

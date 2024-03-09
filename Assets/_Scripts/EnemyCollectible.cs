@@ -6,21 +6,24 @@ using UnityEngine;
 
 public class EnemyCollectible : BasicCollectible
 {
-    private Animator _enemyAnimator;
     [SerializeField] MMFeedbacks _shakeFeeback;
+
+    public delegate void OnDeath(EnemyCollectible enemy);
+    public static event OnDeath onSmallEnemyDeath;
 
     public override void Awake()
     {
         base.Awake();
-        _enemyAnimator = GetComponent<Animator>();
         LevelAdded = 2;
+        SoundName = "Gun";
     }
 
     public override void CollectibleBehaviour()
     {
         GameManager.Instance.Level += LevelAdded;
-        _enemyAnimator.SetTrigger("Death");
+        //Look into if the feedback feels right before replacing the dependency
         _shakeFeeback.PlayFeedbacks();
+        onSmallEnemyDeath?.Invoke(this);
         base.CollectibleBehaviour();
     }
 }

@@ -6,9 +6,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _level;
-    [SerializeField] MMFeedbacks _shakeFeeback;
     private Animator _bigEnemyAnimator;
-    private AudioSource _audioSource;
+
+    public delegate void OnDeath(Enemy enemy);
+    public static event OnDeath onBigEnemyDeath;
 
 
     public int Level
@@ -17,11 +18,6 @@ public class Enemy : MonoBehaviour
         set => _level = value;
     }
 
-    private void Awake()
-    {
-        _bigEnemyAnimator = GetComponent<Animator>();
-        _audioSource = GetComponent<AudioSource>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,10 +31,8 @@ public class Enemy : MonoBehaviour
         }
         else if (other.gameObject.tag == "Player" && GameManager.Instance.Level > _level)
         {
-            _shakeFeeback.PlayFeedbacks();
-            other.gameObject.GetComponent<Animator>().SetTrigger("Punch");
-            _bigEnemyAnimator.SetTrigger("Death");
-            _audioSource.Play();
+            AudioManager.Instance.PlaySound("Big Gun");
+            onBigEnemyDeath?.Invoke(this);
             Destroy(gameObject, 1.5f);
         }
     }

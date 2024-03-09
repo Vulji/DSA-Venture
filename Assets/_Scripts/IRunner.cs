@@ -5,7 +5,4 @@ public interface IRunner
     void SetAccelerationRunnerSpeed(float accelerationSpeed);
 
 
-
-
-
 }

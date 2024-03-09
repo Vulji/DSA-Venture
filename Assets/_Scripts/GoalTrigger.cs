@@ -15,6 +15,9 @@ public class GoalTrigger : MonoBehaviour
     private void Awake()
     {
         _gameGo = FindObjectOfType<GameGo>();
+
+        if (_panel == null)
+            _panel = FindObjectOfType<Panel>(true).gameObject;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,7 +30,7 @@ public class GoalTrigger : MonoBehaviour
                 {
                     item.Play();
                 };
-                AudioManager.Instance.PlayAudio(1);
+                AudioManager.Instance.PlaySound("Applause");
                 _isEndingCelebrationPlaying = true;
             }
             
