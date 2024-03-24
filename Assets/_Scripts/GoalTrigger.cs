@@ -20,6 +20,7 @@ public class GoalTrigger : MonoBehaviour
             _panel = FindObjectOfType<Panel>(true).gameObject;
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")

@@ -7,9 +7,9 @@ public class Player : MonoBehaviour, IDamageable
 {
     [Header("Feedbacks")]
     public MMFeedbacks PlayerFeedbacks;
-    private bool _isGrounded;
-    private float _gravity = 9.81f;
-    private float _verticalVelocity = 0f;
+    //private bool _isGrounded;
+    //private float _gravity = 9.81f;
+    //private float _verticalVelocity = 0f;
 
 
     /*Besoin de retravailler cela sans uttilisation de rigidbody*/

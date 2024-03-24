@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2521416104413938062
 MonoBehaviour:
@@ -44,6 +44,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f84b0d24fe366d43893e3eddf0fcac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioClips:
-  - {fileID: 8300000, guid: 150b18c4074697844b79896348a5ba07, type: 3}
-  - {fileID: 8300000, guid: 02d06b62d40210f47aa8fc6e8967ab56, type: 3}
+  _audioSounds:
+  - ClipName: Main Music
+    AudioClip: {fileID: 8300000, guid: 150b18c4074697844b79896348a5ba07, type: 3}
+    Volume: 0.504
+    Pitch: 1
+    Source: {fileID: 0}
+    Group: {fileID: -2273146209696275378, guid: 7e984f512e89b60468e829489e8883e3,
+      type: 2}
+    IsLooping: 1
+  - ClipName: Applause
+    AudioClip: {fileID: 8300000, guid: 02d06b62d40210f47aa8fc6e8967ab56, type: 3}
+    Volume: 0.803
+    Pitch: 1
+    Source: {fileID: 0}
+    Group: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
+      type: 2}
+    IsLooping: 0
+  - ClipName: Boost
+    AudioClip: {fileID: 8300000, guid: 88627ff2aaf16514f89a43a8aa2d8dbc, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Source: {fileID: 0}
+    Group: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
+      type: 2}
+    IsLooping: 0
+  - ClipName: Gun
+    AudioClip: {fileID: 8300000, guid: e11a5a019377fbd4c81caa0adcb4c236, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Source: {fileID: 0}
+    Group: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
+      type: 2}
+    IsLooping: 0
+  - ClipName: Big Gun
+    AudioClip: {fileID: 8300000, guid: 5ff823f546b52574a931e1d9b44290a6, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Source: {fileID: 0}
+    Group: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
+      type: 2}
+    IsLooping: 0
+  - ClipName: Grunt
+    AudioClip: {fileID: 8300000, guid: 1822dc63baf37dc43b82b85c10144ee5, type: 3}
+    Volume: 0.8
+    Pitch: 1
+    Source: {fileID: 0}
+    Group: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
+      type: 2}
+    IsLooping: 0
+  - ClipName: Boing
+    AudioClip: {fileID: 8300000, guid: e01b8f12e790cc3408bcd7d8afa1cc50, type: 3}
+    Volume: 1
+    Pitch: 1
+    Source: {fileID: 0}
+    Group: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
+      type: 2}
+    IsLooping: 0
+  - ClipName: Diamond
+    AudioClip: {fileID: 8300000, guid: 84fd89f219f9005418ab03c8ec10a2d0, type: 3}
+    Volume: 0.8
+    Pitch: 1
+    Source: {fileID: 0}
+    Group: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
+      type: 2}
+    IsLooping: 0
+  - ClipName: Secret
+    AudioClip: {fileID: 8300000, guid: baaf00a01a9b8084a8eb26f238803225, type: 3}
+    Volume: 0.8
+    Pitch: 1
+    Source: {fileID: 0}
+    Group: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
+      type: 2}
+    IsLooping: 0

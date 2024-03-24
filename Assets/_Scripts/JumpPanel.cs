@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JumpPanel : BasePanel
 {
-    private float _jumpForce = 50000f;
+    //private float _jumpForce = 50000f;
 
 
     private void Awake()

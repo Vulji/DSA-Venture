@@ -18,8 +18,8 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
     private bool _paused;
     [SerializeField] private bool _goalTapStarted;
 
-    private int _currentTapGauge = 0;
-    private int _maxTapGauge = 10;
+    //private int _currentTapGauge = 0;
+    //private int _maxTapGauge = 10;
 
 
     public delegate void OnTapGaugeFull();
