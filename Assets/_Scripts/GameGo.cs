@@ -106,6 +106,8 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+
+
     private void OnSlideMove(InputAction.CallbackContext context)
     {
         if (_goalTapStarted || _player == null)
@@ -135,7 +137,6 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
             _player.transform.position.z
         );
     }
-
 
 
     public bool IsStarted()

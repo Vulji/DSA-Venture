@@ -107,6 +107,8 @@ MonoBehaviour:
   - {fileID: 7627942431281457778}
   - {fileID: 7504147351093449147}
   - {fileID: 8102629216698812475}
+  _panel: {fileID: 0}
+  _speedParticles: {fileID: 0}
 --- !u!65 &1849029926949463282
 BoxCollider:
   m_ObjectHideFlags: 0

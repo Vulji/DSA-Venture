@@ -10,6 +10,7 @@ public class GoalTrigger : MonoBehaviour
     private bool _isEndingCelebrationPlaying;
     [SerializeField] private ParticleSystem[] _particleSystem;
     [SerializeField] private GameObject _panel;
+    [SerializeField] private ParticleSystem _speedParticles;
 
 
     private void Awake()
@@ -33,7 +34,12 @@ public class GoalTrigger : MonoBehaviour
                 };
                 AudioManager.Instance.PlaySound("Applause");
                 _isEndingCelebrationPlaying = true;
+
             }
+            if (_speedParticles.isPlaying)
+            {
+                _speedParticles.Stop();
+            }    
             
             SaveSystem.Save();
            _gameGo.GoalTapStarted=true;
