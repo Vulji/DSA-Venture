@@ -10,7 +10,7 @@ public class SecretGoal : MonoBehaviour
         {
             AudioManager.Instance.PlaySound("Secret");
 
-            GameManager.Instance.NextLevel(1);
+            GameManager.Instance.NextLevel();
         }
     }
 }
