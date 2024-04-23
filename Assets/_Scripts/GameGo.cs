@@ -14,6 +14,8 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
     private InputAction _positionScreenAction;
     private InputAction _pauseGame;
 
+    [SerializeField] private TweenUI _tweenUI;
+
     private bool _started;
     private bool _paused;
     [SerializeField] private bool _goalTapStarted;
@@ -71,6 +73,7 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
     {
         _started = true;
         _slideText.SetActive(false);
+
 
         if (_goalTapStarted)
         {
