@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 80fa4f34db87aad4d93c45188b19bfd6, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_Sun: {fileID: 779910807}
+  m_IndirectSpecularColor: {r: 0.028593922, g: 0.29739192, b: 0.49116698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -212,7 +212,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3ce3036ed876b0944acf9f2c2c5a97b2, type: 2}
+  - {fileID: 2100000, guid: 4b2ec0e388b47a34b9e13b6d603be953, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1743,7 +1743,6 @@ GameObject:
   m_Component:
   - component: {fileID: 891273472}
   - component: {fileID: 891273474}
-  - component: {fileID: 891273473}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1766,14 +1765,6 @@ Transform:
   m_Father: {fileID: 222084682}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 13.338, y: 0, z: 0}
---- !u!81 &891273473
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891273471}
-  m_Enabled: 1
 --- !u!20 &891273474
 Camera:
   m_ObjectHideFlags: 0

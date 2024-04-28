@@ -14,11 +14,6 @@ public class TweenUI : MonoBehaviour
         PulseText();
     }
 
-    private void Update()
-    {
-        
-    }
-
     void PulseText()
     {
 

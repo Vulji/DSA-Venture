@@ -27,7 +27,6 @@ public class FloatingText : MonoBehaviour
         //transform.SetParent(_canvasTransform);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_unitTransform == null)

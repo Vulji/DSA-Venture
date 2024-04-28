@@ -8,7 +8,6 @@ public class UIManager : MonoBehaviour
      [SerializeField] private TextMeshProUGUI _scoreText;
      [SerializeField] private TextMeshProUGUI _levelText;
 
-    // Update is called once per frame
     void Update()
     {
         _scoreText.text = "Score:" + GameManager.Instance.Score;

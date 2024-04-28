@@ -20,9 +20,6 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
     private bool _paused;
     [SerializeField] private bool _goalTapStarted;
 
-    //private int _currentTapGauge = 0;
-    //private int _maxTapGauge = 10;
-
 
     public delegate void OnTapGaugeFull();
     public static event OnTapGaugeFull onTapGaugeFull;
@@ -73,21 +70,6 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
     {
         _started = true;
         _slideText.SetActive(false);
-
-
-        if (_goalTapStarted)
-        {
-
-
-            //_currentTapGauge++;
-            //Debug.Log(_currentTapGauge);
-
-            //if (_currentTapGauge >= _maxTapGauge)
-            //{
-            //    if (GameManager.Instance != null)
-            //        onTapGaugeFull();
-            //}
-        }
     }
 
     private void OnPauseButton(InputAction.CallbackContext context)

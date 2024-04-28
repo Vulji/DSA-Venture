@@ -117,12 +117,6 @@ public class GameManager : MonoBehaviour, IResetLevel
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
     }
 
-    //IEnumerator ResetLevelCor()
-    //{
-    //    yield return new WaitForSeconds(2f);
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    //}
-
     void Update()
     {
 
