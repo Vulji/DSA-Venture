@@ -9,7 +9,8 @@ public class GoalTrigger : MonoBehaviour
     private GameGo _gameGo;
     private bool _isEndingCelebrationPlaying;
     [SerializeField] private ParticleSystem[] _particleSystem;
-    [SerializeField] private GameObject _panel;
+    [SerializeField] private GameObject _goalPanel;
+    [SerializeField] private GameObject _failedPanel;
     [SerializeField] private ParticleSystem _speedParticles;
 
 
@@ -17,8 +18,16 @@ public class GoalTrigger : MonoBehaviour
     {
         _gameGo = FindObjectOfType<GameGo>();
 
-        if (_panel == null)
-            _panel = FindObjectOfType<Panel>(true).gameObject;
+        if (_goalPanel == null)
+            _goalPanel = FindObjectOfType<Panel>(true).gameObject;
+    }
+
+    private void Update()
+    {
+        if(_gameGo.IsDead == true)
+        {
+            _failedPanel.SetActive(true);
+        }
     }
 
 
@@ -43,7 +52,7 @@ public class GoalTrigger : MonoBehaviour
             
             SaveSystem.Save();
            _gameGo.GoalTapStarted=true;
-            _panel.SetActive(true);
+            _goalPanel.SetActive(true);
         }
     }
 }

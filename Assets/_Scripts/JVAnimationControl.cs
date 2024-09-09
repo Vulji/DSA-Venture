@@ -21,4 +21,9 @@ public class JVAnimationControl : MonoBehaviour, IJVAnimationControl
     {
         _jvAnimator.SetTrigger("DanceStart");
     }
+
+    public void SetDeathTrigger()
+    {
+        _jvAnimator.SetTrigger("Death");
+    }
 }

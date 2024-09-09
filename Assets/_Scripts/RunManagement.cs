@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -24,6 +25,7 @@ public class RunManagement : MonoBehaviour
     {
         bool isGameStarted = _gameGo.IsStarted();
         bool isTapStarted = _gameGo.GoalTapStarted;
+        bool isDead = _gameGo.IsDead;
         if (isTapStarted)
         {
             if (!_isTapStartTriggered)
@@ -32,7 +34,11 @@ public class RunManagement : MonoBehaviour
                 _isTapStartTriggered = true;
             }
         }
-        if (isGameStarted & !isTapStarted)
+        else if (isDead)
+        {
+            _jvAnimationControl.SetDeathTrigger();
+        }
+        else if (isGameStarted & !isTapStarted & !isDead)
         {
             if (!_isRunStartTriggered)
             {

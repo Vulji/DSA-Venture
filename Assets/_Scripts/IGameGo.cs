@@ -6,4 +6,10 @@ public interface IGameGo
         get;
         set;
     }
+
+    public bool IsDead
+    {
+        get;
+        set;
+    }
 }

@@ -7,10 +7,10 @@ public class Player : MonoBehaviour, IDamageable
 {
     [Header("Feedbacks")]
     public MMFeedbacks PlayerFeedbacks;
+    [SerializeField] private GameGo _gameGo;
     //private bool _isGrounded;
     //private float _gravity = 9.81f;
     //private float _verticalVelocity = 0f;
-
 
     /*Besoin de retravailler cela sans uttilisation de rigidbody*/
 
@@ -46,6 +46,13 @@ public class Player : MonoBehaviour, IDamageable
     //    }
     //}
 
+    private void OnTriggerEnter(Collider other)
+    {            
+        if (other.gameObject.tag == "Stop")
+        {
+            _gameGo.IsDead = true;
+        }
+    }
 
     public void TakeDamage()
     {

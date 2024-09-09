@@ -20,6 +20,8 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
     private bool _paused;
     [SerializeField] private bool _goalTapStarted;
 
+    [SerializeField] private bool _isDead;
+
 
     public delegate void OnTapGaugeFull();
     public static event OnTapGaugeFull onTapGaugeFull;
@@ -28,6 +30,12 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
     {
         get => _goalTapStarted;
         set => _goalTapStarted = value;
+    }
+
+    public bool IsDead
+    {
+        get => _isDead;
+        set => _isDead = value;
     }
 
     private void Awake()
@@ -95,7 +103,7 @@ public class GameGo : MonoBehaviour, IGameGo, IResetLevel
 
     private void OnSlideMove(InputAction.CallbackContext context)
     {
-        if (_goalTapStarted || _player == null)
+        if (_goalTapStarted || _isDead || _player == null)
             return;
 
         Vector2 inputPosition = _positionScreenAction.ReadValue<Vector2>();
